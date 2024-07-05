@@ -1,0 +1,160 @@
++++++++++ Twenty basic commands to get you started quickly++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1- first step install git
+ $ sudo apt install git
+-------------------------------------------------------------------
+2-and i make sure that the git is installed
+$ git --version 
+-> git version 2.43.0
+-------------------------------------------------------------------
+3- created a dir for git project
+$ mkdir git project
+$ cd project
+~/tmp/project 
+-------------------------------------------------------------------
+4-for started a git
+$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+-------------------------------------------------------------------
+$ ls -a
+5-With this command, we should be able to see this dirs
+.  ..  .git
+-------------------------------------------------------------------
+$ git status 
+
+6-Shows the git  status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+-------------------------------------------------------------------
+7-yours can create any file(im create a html file)
+$ touch index.html
+---------------------------------------------------------------
+$ git status 
+On branch master
+
+No commits yet
+
+8-untracked file This means that a file created by git is not tracked
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+    
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+-------------------------------------------------------------------
+9-i use this command to add a file to git
+$ git add index.html
+-------------------------------------------------------------------
+10-we can see index.html in commit 
+$ git status 
+On branch master
+
+No commits yet
+11-he git commit command captures a snapshot of the project's currently staged changes.
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+-------------------------------------------------------------------$ git commit -m 'index file created'
+
+12- -m for write the massage
+
+[master (root-commit) e763987] index file created
+ 1 file changed, 13 insertions(+)
+ create mode 100644 index.html
+-------------------------------------------------------------------
+13- if I change the file and then see the status, git tells us that we have a changed file
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+-------------------------------------------------------------------
+14-now this file is ready to commit
+
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+-------------------------------------------------------------------
+
+$ git log 
+
+15-it shows the status of the work we have done
+and HEAD -> it means that we are here now
+commit e76398733c7c7140848095c56eda40cf540084f4 (HEAD -> master)
+Author: <your name> <your email>
+Date:   Tue Jul 2 12:21:25 2024 +0330
+
+    index file created
+
+-------------------------------------------------------------------
+$ git diff HEAD
+16-It shows us where the last commit is
+
+diff --git a/.index.html.swp b/.index.html.swp
+new file mode 100644
+index 0000000..ea86e45
+Binary files /dev/null and b/.index.html.swp differ
+diff --git a/index.html b/index.html
+index 69f21a2..5f6955d 100644
+--- a/index.html
++++ b/index.html
+@@ -9,5 +9,6 @@
+   </head> 
+   <body>
+       <p>hello git</p>
++      <p>hello github</p>
+   </body>
+ </html>
+diff --git a/style.css b/style.css
+new file mode 100644
+index 0000000..e69de29
+diff --git a/style2.css b/style2.css
+new file mode 100644
+index 0000000..e69de29
+diff --git a/style3.css b/style3.css
+new file mode 100644
+index 0000000..e69de2
+------------------------------------------------------------------
+$ git reset 'index.html'
+17-We can remove some of these files from the stage
+-------------------------------------------------------------------$ git checkout <file name>
+18- it takes the file from the last changes it made
+-------------------------------------------------------------------
+$ git branch
+* main
+
+$ git branch <your branch name>  
+
+$ git branch
+* main
+  mybranch
+
+19-means branch or tree and for created a branch
+-------------------------------------------------------------------
+$ git checkout mybranch 
+Switched to branch 'mybranch'
+
+20-to change from branch
+Here we can make changes without changing the main project
+-------------------------------------------------------------------
+$ git merge mybranch
+We use this command to apply changes to the main project
+-------------------------------------------------------------------
